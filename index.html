@@ -1,55 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Happy Birthday!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love!</title>
   <style>
+    /* Overall page styles */
     body {
-      background: linear-gradient(to right, #ffafbd, #ffc3a0);
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background: radial-gradient(circle at center, #ff9a9e, #fad0c4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
     }
+
     h1 {
-      font-size: 3em;
-      margin: 0.5em 0;
+      font-size: 3.5em;
       color: #fff;
-      text-shadow: 2px 2px 4px #000;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
     }
-    .content {
-      margin-top: 50px;
+
+    p {
+      color: #fff;
+      font-size: 1.2em;
     }
-    img {
-      max-width: 80%;
-      height: auto;
-      border: 5px solid #fff;
-      box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-    }
-    .notes-link {
-      display: inline-block;
-      margin-top: 30px;
+
+    a {
+      margin-top: 20px;
       padding: 10px 20px;
+      text-decoration: none;
       background: #fff;
       color: #333;
-      text-decoration: none;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    .notes-link:hover {
+    a:hover {
       background: #f0f0f0;
     }
-  </style>
-</head>
-<body>
-  <div class="content">
-    <h1>HAPPY BIRTHDAY!</h1>
-    <p style="color: #fff; font-size: 1.2em;">To the love of my life!</p>
-    <!-- Replace "photo.jpg" with your actual photo file -->
-    <img src="photo.jpg" alt="A lovely moment together">
-    <br>
-    <a class="notes-link" href="notes.html">Read My Notes</a>
-  </div>
-</body>
-</html>
+
+    /* Heart container and pulsating heart */
+    .heart-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 100px;
+      height: 90px;
+      background: #e25555;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      background: #e25555;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1) rotate(-45deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+      }
+    }
+
+    /* Floating hearts animation */
+    .floating-hearts {
+      position: absolute;
+      bottom: -50px;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floating-hearts span {
+      position: absolute;
+      display: block;
+      background: #ff6f61;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      opacity: 0.7;
+      animation: float 5s infinite;
+    }
+    .floating-hearts span::before,
+    .floating-hearts span::after {
+      content: '';
+      position: absolute;
+      background: #ff6f61;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    .floating-hearts span::

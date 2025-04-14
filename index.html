@@ -50,17 +50,20 @@
       position: relative;
       width: 150px;
       height: 150px;
+      margin-bottom: 20px;
     }
     .heart {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-45deg);
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
       width: 100px;
       height: 90px;
       background: #e25555;
-      animation: pulse 1.5s infinite;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: pulse 1.5s infinite;
+      -webkit-animation: pulse 1.5s infinite;
     }
     .heart::before,
     .heart::after {
@@ -90,6 +93,17 @@
         transform: translate(-50%, -50%) scale(1) rotate(-45deg);
       }
     }
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+      }
+      50% {
+        -webkit-transform: translate(-50%, -50%) scale(1.1) rotate(-45deg);
+      }
+      100% {
+        -webkit-transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+      }
+    }
 
     /* Floating hearts animation */
     .floating-hearts {
@@ -107,8 +121,10 @@
       width: 20px;
       height: 20px;
       transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
       opacity: 0.7;
       animation: float 5s infinite;
+      -webkit-animation: float 5s infinite;
     }
     .floating-hearts span::before,
     .floating-hearts span::after {
@@ -119,4 +135,58 @@
       height: 20px;
       border-radius: 50%;
     }
-    .floating-hearts span::
+    .floating-hearts span::before {
+      top: -10px;
+      left: 0;
+    }
+    .floating-hearts span::after {
+      left: 10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        -webkit-transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(50px) translateY(-800px) rotate(45deg);
+        -webkit-transform: translateX(50px) translateY(-800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes float {
+      0% {
+        -webkit-transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translateX(50px) translateY(-800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>HAPPY BIRTHDAY!</h1>
+  <div class="heart-container">
+    <div class="heart"></div>
+  </div>
+  <p>I love you more than words can say!</p>
+  <a href="notes.html">Read My Notes</a>
+  <!-- Floating hearts -->
+  <div class="floating-hearts">
+    <span style="left: 10%; animation-delay: 0s; -webkit-animation-delay: 0s;"></span>
+    <span style="left: 30%; animation-delay: 1s; -webkit-animation-delay: 1s;"></span>
+    <span style="left: 50%; animation-delay: 2s; -webkit-animation-delay: 2s;"></span>
+    <span style="left: 70%; animation-delay: 3s; -webkit-animation-delay: 3s;"></span>
+    <span style="left: 90%; animation-delay: 4s; -webkit-animation-delay: 4s;"></span>
+  </div>
+</body>
+</html>
